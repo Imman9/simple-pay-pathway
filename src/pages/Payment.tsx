@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Car, Route } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import SeatMap from "@/components/SeatMap";
 
 const Payment = () => {
   const [destination, setDestination] = useState("");
@@ -19,7 +19,7 @@ const Payment = () => {
     driverName: "John Mwangi",
     route: "CBD - Westlands",
     availableSeats: 8,
-    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302?w=500&h=300&fit=crop"
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&h=300&fit=crop"
   };
 
   const handleDestinationChange = (value: string) => {
@@ -80,6 +80,8 @@ const Payment = () => {
               <Route className="w-4 h-4" />
               <span>Route: {matatuDetails.route}</span>
             </div>
+
+            <SeatMap availableSeats={matatuDetails.availableSeats} />
           </div>
         </Card>
 
