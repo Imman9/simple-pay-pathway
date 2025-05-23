@@ -16,30 +16,30 @@ const SeatMap = ({ availableSeats, totalSeats = 14 }: SeatMapProps) => {
   }));
 
   return (
-    <div className="bg-gray-100 p-4 rounded-lg">
-      <h4 className="text-sm font-medium mb-3 text-center">Seat Availability</h4>
-      <div className="grid grid-cols-3 gap-1 max-w-32 mx-auto">
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200">
+      <h4 className="text-sm font-semibold mb-4 text-center text-gray-800">Seat Availability</h4>
+      <div className="grid grid-cols-3 gap-2 max-w-36 mx-auto">
         {seats.map((seat) => (
           <div
             key={seat.id}
-            className={`w-6 h-6 rounded-sm flex items-center justify-center text-xs font-medium ${
+            className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shadow-sm transition-all duration-200 ${
               seat.isOccupied 
-                ? 'bg-red-500 text-white' 
-                : 'bg-green-500 text-white'
+                ? 'bg-gradient-to-br from-red-500 to-red-600 text-white shadow-red-200' 
+                : 'bg-gradient-to-br from-green-500 to-green-600 text-white shadow-green-200 hover:scale-105'
             }`}
           >
             {seat.id}
           </div>
         ))}
       </div>
-      <div className="flex justify-center gap-4 mt-3 text-xs">
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
-          <span>Available</span>
+      <div className="flex justify-center gap-6 mt-4 text-xs">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 bg-gradient-to-br from-green-500 to-green-600 rounded-md shadow-sm"></div>
+          <span className="font-medium text-gray-700">Available</span>
         </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
-          <span>Occupied</span>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-md shadow-sm"></div>
+          <span className="font-medium text-gray-700">Occupied</span>
         </div>
       </div>
     </div>
